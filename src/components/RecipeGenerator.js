@@ -1,72 +1,96 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./RecipeGenerator.css";
-
-const API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+import "./RecipeGenerator.css"; // Import CSS for styles
 
 const RecipeGenerator = () => {
   const [ingredients, setIngredients] = useState("");
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const generateRecipe = async () => {
-    if (!ingredients.trim()) return;
+    if (!ingredients.trim()) {
+      setError("Please enter some ingredients.");
+      return;
+    }
+
     setLoading(true);
-  
+    setError("");
+    setRecipe(null);
+
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             contents: [
               {
-                parts: [{ text: `Create a detailed recipe using these ingredients: ${ingredients}` }],
+                parts: [
+                  { text: `Create a detailed recipe using these ingredients: ${ingredients}` },
+                ],
               },
             ],
           }),
         }
       );
-  
+
       const data = await response.json();
-  
-      // Debugging: Check the response structure
-      console.log("API Response:", data);
-  
-      if (data.candidates && data.candidates.length > 0) {
+
+      if (data.candidates) {
         setRecipe(data.candidates[0].content.parts[0].text.trim());
       } else {
-        setRecipe("Sorry, no recipe could be generated. Try different ingredients.");
+        setError("No recipe found. Try again.");
       }
     } catch (error) {
       console.error("Error fetching recipe:", error);
-      setRecipe("Failed to fetch recipe. Please try again.");
+      setError("Failed to fetch recipe. Please try again.");
     }
-    
+
     setLoading(false);
   };
-  
+
   return (
-    <div className="container">
-      <motion.h1 className="title" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <div className="recipe-container">
+      <motion.h1
+        className="title"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         AI Recipe Generator
       </motion.h1>
-      <div className="card">
-        <div className="content">
-          <input
-            type="text"
-            placeholder="Enter ingredients (comma separated)"
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-            className="input"
-          />
-          <button onClick={generateRecipe} className="button" disabled={loading}>
-            {loading ? "Generating..." : "Generate Recipe"}
-          </button>
-          {recipe && <p className="recipe">{recipe}</p>}
-        </div>
+
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Enter ingredients (comma separated)"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+          className="input-box"
+        />
+        <button onClick={generateRecipe} className="generate-btn" disabled={loading}>
+          {loading ? "Generating..." : "Generate Recipe"}
+        </button>
       </div>
+
+      {loading && <p className="loading-text">Fetching recipe...</p>}
+      {error && <p className="error-text">{error}</p>}
+
+      {recipe && (
+        <div className="recipe-result">
+          <h2>Your Recipe:</h2>
+          <p>{recipe}</p>
+          <button
+            className="copy-btn"
+            onClick={() => navigator.clipboard.writeText(recipe)}
+          >
+            Copy Recipe
+          </button>
+        </div>
+      )}
     </div>
   );
 };
