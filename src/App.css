@@ -1,18 +1,176 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fffaf0; /* Warm background */
+  color: #333;
+  text-align: center;
+  padding-top: 60px;
+}
+
+/* Navigation Bar */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
-  background: #ff7043;
+  align-items: center;
+  padding: 15px 30px;
+  background: #ff7043; /* Vibrant orange */
   color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.home, .auth-container, .dashboard {
-  text-align: center;
-  padding: 20px;
-}
-
-a {
+.navbar a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffe082;
+}
+
+.navbar button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar button:hover {
+  background: #d32f2f;
+}
+
+/* Home Page */
+.home {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff7043;
+}
+
+.home p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Authentication Pages (Login & Register) */
+.auth-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.auth-container h2 {
+  color: #ff7043;
+  margin-bottom: 15px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background: #ff7043;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.auth-container button:hover {
+  background: #e65100;
+}
+
+.auth-container p {
+  margin-top: 10px;
+}
+
+.auth-container .link {
+  color: #ff7043;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.auth-container .link:hover {
+  color: #e65100;
+}
+
+/* Dashboard */
+.dashboard {
+  max-width: 600px;
+  margin: 120px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard h2 {
+  color: #ff7043;
+  font-size: 28px;
+}
+
+.dashboard p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .auth-container, .dashboard {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .home h1 {
+    font-size: 32px;
+  }
+
+  .dashboard h2 {
+    font-size: 24px;
+  }
 }

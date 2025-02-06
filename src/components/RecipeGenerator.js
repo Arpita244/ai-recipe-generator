@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./RecipeGenerator.css"; // Import CSS for styles
 
 const RecipeGenerator = () => {
   const [ingredients, setIngredients] = useState("");
-  const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [recipe, setRecipe] = useState(null);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const generateRecipe = async () => {
     if (!ingredients.trim()) {
@@ -17,6 +19,8 @@ const RecipeGenerator = () => {
     setLoading(true);
     setError("");
     setRecipe(null);
+
+    localStorage.setItem("ingredients", ingredients);
 
     try {
       const response = await fetch(
@@ -30,7 +34,9 @@ const RecipeGenerator = () => {
             contents: [
               {
                 parts: [
-                  { text: `Create a detailed recipe using these ingredients: ${ingredients}` },
+                  {
+                    text: `Generate a full detailed recipe including name, ingredients, and step-by-step instructions for cooking using these ingredients: ${ingredients}. Provide a structured response.`,
+                  },
                 ],
               },
             ],
@@ -39,9 +45,19 @@ const RecipeGenerator = () => {
       );
 
       const data = await response.json();
+      console.log("API Response:", data); // Debugging log
 
-      if (data.candidates) {
-        setRecipe(data.candidates[0].content.parts[0].text.trim());
+      if (data && data.candidates && data.candidates.length > 0) {
+        const generatedRecipe =
+          data.candidates[0]?.content?.parts[0]?.text?.trim();
+
+        if (generatedRecipe) {
+          setRecipe(generatedRecipe);
+          localStorage.setItem("recipe", generatedRecipe);
+          navigate("/recipe"); // Redirect to recipe page
+        } else {
+          setError("Failed to generate a detailed recipe. Please try again.");
+        }
       } else {
         setError("No recipe found. Try again.");
       }
@@ -64,14 +80,18 @@ const RecipeGenerator = () => {
       </motion.h1>
 
       <div className="input-container">
-        <input
-          type="text"
-          placeholder="Enter ingredients (comma separated)"
+        <textarea
+          placeholder="Enter ingredients (comma separated)..."
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
           className="input-box"
+          rows="4"
         />
-        <button onClick={generateRecipe} className="generate-btn" disabled={loading}>
+        <button
+          onClick={generateRecipe}
+          className="generate-btn"
+          disabled={loading}
+        >
           {loading ? "Generating..." : "Generate Recipe"}
         </button>
       </div>

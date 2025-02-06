@@ -1,5 +1,5 @@
-.recipe-container {
-    max-width: 500px;
+.recipe-page {
+    max-width: 600px;
     margin: 100px auto;
     padding: 20px;
     background: white;
@@ -8,33 +8,26 @@
     text-align: center;
   }
   
-  h2 {
-    color: #ff7043;
-  }
-  
-  .ingredients-input {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
+  .recipe-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff3e0;
     border: 2px solid #ff7043;
     border-radius: 5px;
-    font-size: 16px;
-    resize: none;
   }
   
-  .generate-btn {
-    width: 100%;
+  .back-btn {
     padding: 10px;
     background: #ff7043;
     color: white;
     border: none;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 5px;
   }
   
-  .generate-btn:hover {
+  .back-btn:hover {
     background: #e65100;
   }
   

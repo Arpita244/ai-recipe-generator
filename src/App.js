@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import RecipePage from "./pages/RecipePage"; // Import Recipe Page
 import "./App.css";
 
 const App = () => {
@@ -13,10 +14,11 @@ const App = () => {
   return (
     <Router>
       <nav className="navbar">
-        <Link to="/">Home</Link>
+        <Link to="/">Recipe Genie</Link>
         {user ? (
           <>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/recipe-generator">Generate Recipe</Link>
             <button onClick={() => { localStorage.removeItem("user"); setUser(null); }}>Logout</button>
           </>
         ) : (
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+        <Route path="/recipe-generator" element={<RecipeGenerator />} />
+        <Route path="/recipe" element={<RecipePage />} />
       </Routes>
     </Router>
   );
