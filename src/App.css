@@ -10,59 +10,11 @@ body {
   background: #fffaf0; /* Warm background */
   color: #333;
   text-align: center;
-  padding-top: 60px;
 }
-
-/* Navigation Bar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #ff7043; /* Vibrant orange */
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 15px;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  color: #ffe082;
-}
-
-.navbar button {
-  background: #f44336;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.navbar button:hover {
-  background: #d32f2f;
-}
-
 
 
 /* Authentication Pages (Login & Register) */
 .auth-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 30px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -117,7 +69,6 @@ body {
 .dashboard {
   max-width: 600px;
   margin: 120px auto;
-  padding: 30px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);

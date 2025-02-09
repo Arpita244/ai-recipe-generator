@@ -1,36 +1,56 @@
-/* 🌟 Fullscreen Authentication Page Background */
+/* 🌟 Fullscreen Dark Themed Authentication Background */
 .auth-container {
-    background: url('https://img.freepik.com/free-photo/ingredients-cabbage-carrot-pie-cabbage-carrots-eggs-flour-milk-butter-spices-white-background_127032-2819.jpg') no-repeat center center/cover;
-    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Make the background fixed */
+    top: 0;
+    margin-top: 0%;
+    left: 0;
+    z-index: -1; /* Keep the background behind the content */
 }
+
+.auth-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.freepik.com/free-photo/ingredients-cabbage-carrot-pie-cabbage-carrots-eggs-flour-milk-butter-spices-white-background_127032-2819.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(0.5); /* Darken Background */
+}
+
 
 /* 🌟 Glassmorphic Authentication Box */
 .auth-box {
-    background: rgba(255, 255, 255, 0.15); /* Transparent Glass Effect */
+    background: rgba(0, 0, 0, 0.6); /* Dark Transparent Glass Effect */
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
-    width: 380px;
+    box-shadow: 0px 8px 25px rgba(255, 255, 255, 0.15);
+    width: 400px;
+    max-width: 90%;
     text-align: center;
-    backdrop-filter: blur(12px); /* Smooth glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease-in-out;
 }
 
 /* 🌟 Interactive Hover Effect */
 .auth-box:hover {
     transform: scale(1.02);
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 12px 30px rgba(255, 255, 255, 0.2);
 }
 
 /* 🌟 Animated Heading */
 .auth-box h2 {
-    color: #ff7043;
-    font-size: 26px;
+    color: #ffcc80;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 20px;
@@ -40,50 +60,51 @@
 /* 🌟 Input Field Styling */
 .auth-box .input-group {
     position: relative;
-    margin: 15px 0;
+    margin: 20px 0;
+    text-align: left;
 }
 
 .auth-box input {
     width: 100%;
     padding: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     font-size: 16px;
-    background: transparent;
-    color: #fff;
-    transition: border 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffcc80;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Floating Label Effect */
+/* 🌟 Floating Label Effect */
 .auth-box input:focus,
 .auth-box input:not(:placeholder-shown) {
-    border: 1px solid #ff7043;
+    border: 2px solid #ffcc80;
+    outline: none;
 }
 
 .auth-box .input-group label {
     position: absolute;
-    left: 12px;
+    left: 14px;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
-    pointer-events: none;
     transition: 0.3s ease-in-out;
 }
 
 .auth-box input:focus + label,
 .auth-box input:not(:placeholder-shown) + label {
     top: 5px;
-    left: 10px;
+    left: 12px;
     font-size: 12px;
-    color: #ff7043;
+    color: #ffcc80;
 }
 
-/* 🌟 Buttons with 3D Depth */
+/* 🌟 3D Styled Buttons */
 .auth-box button {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(45deg, #ff7043, #ff5722);
+    background: linear-gradient(135deg, #ff9800, #e65100);
     color: white;
     border: none;
     font-size: 18px;
@@ -92,24 +113,24 @@
     margin-top: 15px;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.3);
 }
 
 .auth-box button:hover {
-    background: #e64a19;
+    background: #e65100;
     transform: translateY(-3px);
     box-shadow: 0px 6px 20px rgba(230, 74, 25, 0.5);
 }
 
-/* 🌟 Links */
+/* 🌟 Text Links */
 .auth-box p {
     margin-top: 15px;
     font-size: 14px;
-    color: white;
+    color: #ffcc80;
 }
 
 .auth-box .link {
-    color: #ff7043;
+    color: #ff9800;
     cursor: pointer;
     font-weight: bold;
     text-decoration: underline;
@@ -117,14 +138,14 @@
 }
 
 .auth-box .link:hover {
-    color: #e65100;
+    color: #ffcc80;
 }
 
-/* 🌟 Glowing Effect */
+/* 🌟 Glow Animation */
 @keyframes glow {
-    0% { box-shadow: 0 0 10px #ff7043; }
-    50% { box-shadow: 0 0 20px #ff7043; }
-    100% { box-shadow: 0 0 10px #ff7043; }
+    0% { box-shadow: 0 0 10px #ff9800; }
+    50% { box-shadow: 0 0 20px #ff9800; }
+    100% { box-shadow: 0 0 10px #ff9800; }
 }
 
 .auth-box button:focus {
