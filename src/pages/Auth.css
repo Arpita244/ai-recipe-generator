@@ -1,0 +1,154 @@
+/* 🌟 Fullscreen Authentication Page Background */
+.auth-container {
+    background: url('https://img.freepik.com/free-photo/ingredients-cabbage-carrot-pie-cabbage-carrots-eggs-flour-milk-butter-spices-white-background_127032-2819.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 🌟 Glassmorphic Authentication Box */
+.auth-box {
+    background: rgba(255, 255, 255, 0.15); /* Transparent Glass Effect */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+    width: 380px;
+    text-align: center;
+    backdrop-filter: blur(12px); /* Smooth glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🌟 Interactive Hover Effect */
+.auth-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 🌟 Animated Heading */
+.auth-box h2 {
+    color: #ff7043;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 🌟 Input Field Styling */
+.auth-box .input-group {
+    position: relative;
+    margin: 15px 0;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Floating Label Effect */
+.auth-box input:focus,
+.auth-box input:not(:placeholder-shown) {
+    border: 1px solid #ff7043;
+}
+
+.auth-box .input-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+
+.auth-box input:focus + label,
+.auth-box input:not(:placeholder-shown) + label {
+    top: 5px;
+    left: 10px;
+    font-size: 12px;
+    color: #ff7043;
+}
+
+/* 🌟 Buttons with 3D Depth */
+.auth-box button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #ff7043, #ff5722);
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+.auth-box button:hover {
+    background: #e64a19;
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 20px rgba(230, 74, 25, 0.5);
+}
+
+/* 🌟 Links */
+.auth-box p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: white;
+}
+
+.auth-box .link {
+    color: #ff7043;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+.auth-box .link:hover {
+    color: #e65100;
+}
+
+/* 🌟 Glowing Effect */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #ff7043; }
+    50% { box-shadow: 0 0 20px #ff7043; }
+    100% { box-shadow: 0 0 10px #ff7043; }
+}
+
+.auth-box button:focus {
+    animation: glow 1.5s infinite alternate;
+}
+
+/* 🌟 Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌟 Mobile Responsive */
+@media (max-width: 450px) {
+    .auth-box {
+        width: 90%;
+        padding: 2rem;
+    }
+    
+    .auth-box h2 {
+        font-size: 22px;
+    }
+
+    .auth-box button {
+        font-size: 16px;
+    }
+}

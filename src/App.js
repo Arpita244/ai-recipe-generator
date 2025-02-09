@@ -14,11 +14,10 @@ const App = () => {
   return (
     <Router>
       <nav className="navbar">
-        <Link to="/">Recipe Genie</Link>
+        <Link to="/">Home</Link>
         {user ? (
           <>
             <Link to="/dashboard">Dashboard</Link>
-            <Link to="/recipe-generator">Generate Recipe</Link>
             <button onClick={() => { localStorage.removeItem("user"); setUser(null); }}>Logout</button>
           </>
         ) : (

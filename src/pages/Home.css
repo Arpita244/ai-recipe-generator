@@ -1,24 +1,23 @@
-.recipe-page {
-    background-image: url("https://i.pinimg.com/736x/e8/01/bd/e801bd5f471107b48a380c3ff73ab9a1.jpg");
+.home {
+    background-image: url("https://as1.ftcdn.net/v2/jpg/09/85/99/02/1000_F_985990208_fEMQ4SFG4DXPbeOVtMr56Xv5Qa8BVCop.jpghttps://as2.ftcdn.net/v2/jpg/04/43/37/07/1000_F_443370711_sqHRnSIQovW6uyQ5ZwDpd4kjCG8Q6swm.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensures the background remains fixed */
     height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white; /* Ensure text is visible */
+    color: white; /* Ensures text is visible */
     text-align: center;
     padding: 20px;
   }
   
-  .recipe-content {
+  .home-content {
     background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
     padding: 20px;
     border-radius: 10px;
     max-width: 80%;
-    white-space: pre-wrap; /* Preserve text formatting */
     font-size: 18px;
     line-height: 1.5;
   }

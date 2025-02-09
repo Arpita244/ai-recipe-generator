@@ -56,22 +56,7 @@ body {
   background: #d32f2f;
 }
 
-/* Home Page */
-.home {
-  padding: 100px 20px;
-  text-align: center;
-}
 
-.home h1 {
-  font-size: 40px;
-  font-weight: bold;
-  color: #ff7043;
-}
-
-.home p {
-  font-size: 18px;
-  margin-top: 10px;
-}
 
 /* Authentication Pages (Login & Register) */
 .auth-container {
