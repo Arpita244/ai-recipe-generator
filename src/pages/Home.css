@@ -1,39 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
+  background-size: 600% 600%;
+  animation: gradientShift 12s ease infinite;
+  overflow-x: hidden;
+}
+
 .home {
-    background-image: url("https://as1.ftcdn.net/v2/jpg/09/85/99/02/1000_F_985990208_fEMQ4SFG4DXPbeOVtMr56Xv5Qa8BVCop.jpghttps://as2.ftcdn.net/v2/jpg/04/43/37/07/1000_F_443370711_sqHRnSIQovW6uyQ5ZwDpd4kjCG8Q6swm.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Ensures the background remains fixed */
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white; /* Ensures text is visible */
-    text-align: center;
-    margin-top: 0%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.home-content {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 30px;
+  padding: 50px 60px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  max-width: 750px;
+  animation: floatCard 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.home-content::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(135deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
+  z-index: -1;
+  border-radius: 30px;
+  filter: blur(8px);
+  animation: borderPulse 8s infinite alternate;
+}
+
+.home h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-in-out;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.home p {
+  font-size: 1.25rem;
+  color: #f8f8f8;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  animation: fadeInUp 1.2s ease-in-out;
+  opacity: 0.95;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.4s ease-in-out;
+}
+
+button {
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  z-index: -1;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: rotate(25deg);
+}
+
+button:hover::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+button:hover {
+  color: #fff;
+  border-color: transparent;
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 20px #ff9a9e;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes borderPulse {
+  0% {
+    opacity: 0.6;
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(12px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .home-content {
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    font-size: 18px;
-    line-height: 1.5;
+    padding: 35px 25px;
   }
-  
+
+  .home h1 {
+    font-size: 2.5rem;
+  }
+
+  .home p {
+    font-size: 1.1rem;
+  }
+
   button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
   }
-  
-  button:hover {
-    background-color: #ff3b3b;
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    padding: 25px 15px;
   }
-  
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

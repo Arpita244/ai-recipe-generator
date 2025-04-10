@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import RecipePage from "./pages/RecipePage"; // Import Recipe Page
+import RecipePage from "./pages/RecipePage";
+import FavoriteRecipes from "./pages/FavoriteRecipes"; 
 import "./App.css";
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
 
   return (
     <Router>
+      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
@@ -20,9 +23,13 @@ const App = () => {
         <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/recipe-generator" element={<RecipeGenerator />} />
         <Route path="/recipe" element={<RecipePage />} />
+        <Route path="/favorites" element={<FavoriteRecipes />} />
       </Routes>
     </Router>
   );
 };
 
+
+
 export default App;
+

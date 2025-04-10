@@ -1,40 +1,215 @@
+/* 📐 Recipe Generator Container Styling */
 .recipe-container {
-    max-width: 500px;
-    margin: 100px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  max-width: 650px;
+  margin: 80px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #ff7043, #e65100);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+  position: relative;
+  overflow: hidden;
+  background: pink;
+}
+
+/* ✨ Title Styling */
+.title {
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  animation: titleFadeIn 2s ease-out;
+}
+
+/* ✨ Fade In Animation for Title */
+@keyframes titleFadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
   }
-  
-  h2 {
-    color: #ff7043;
+  100% {
+      opacity: 1;
+      transform: translateY(0);
   }
-  
-  .ingredients-input {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border: 2px solid #ff7043;
-    border-radius: 5px;
-    font-size: 16px;
-    resize: none;
+}
+
+/* 📋 Input Container */
+.input-container {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 📝 Ingredients Input Box */
+.input-box {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid pink;
+  border-radius: 12px;
+  background: #f8f8f8;
+  color: #333;
+  resize: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* ✨ Generate Button Styling */
+.generate-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff7043, #e65100);
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.generate-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.generate-btn:hover {
+  background: #e65100;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(230, 74, 25, 0.4);
+}
+
+/* ✨ Loading Text */
+.loading-text {
+  color: #ff7043;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* ✨ Error Message Styling */
+.error-text {
+  color: #ff3b3b;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* ✨ Recipe Result Container */
+.recipe-result {
+  margin-top: 30px;
+  padding: 20px;
+  background: pink;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-result h2 {
+  color: #ff7043;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.recipe-result p {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
+  white-space: pre-wrap;
+}
+
+/* ✨ Copy Button Styling */
+.copy-btn {
+  background-color: #ff7043;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: #e65100;
+  transform: scale(1.05);
+}
+
+.copy-btn:active {
+  transform: scale(0.98);
+}
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+  .recipe-container {
+      width: 90%;
+      padding: 25px;
   }
-  
+
+  .title {
+      font-size: 30px;
+      margin-bottom: 20px;
+  }
+
+  .input-box {
+      font-size: 16px;
+      padding: 12px;
+  }
+
   .generate-btn {
-    width: 100%;
-    padding: 10px;
-    background: #ff7043;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
+      font-size: 16px;
+      padding: 12px;
   }
-  
-  .generate-btn:hover {
-    background: #e65100;
+
+  .recipe-result p {
+      font-size: 16px;
   }
-  
+
+  .copy-btn {
+      font-size: 14px;
+      padding: 10px 20px;
+  }
+}
+
+/* ✨ Fade In Effect for Recipe Result */
+@keyframes fadeInResult {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.recipe-result {
+  animation: fadeInResult 1.5s ease-out;
+}
+
+/* ✨ Global Button Transition Effect */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+

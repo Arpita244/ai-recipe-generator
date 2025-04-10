@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+  }
+  
+  .dashboard-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #ffe0e0, #f7f6ff);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dashboard-title {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .recipe-generator-section {
+    margin-top: 30px;
+  }
+  
+  /* Floating Favorites Button */
+  .floating-fav-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(to right, #ff6a88, #ff99ac);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(255, 105, 135, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .floating-fav-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.6);
+  }
+  
