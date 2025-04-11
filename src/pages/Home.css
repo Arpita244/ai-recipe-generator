@@ -9,9 +9,10 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
-  background-size: 600% 600%;
+  background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
   overflow-x: hidden;
+  color: #222;
 }
 
 .home {
@@ -19,22 +20,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 40px;
 }
 
 .home-content {
   background: rgba(255, 255, 255, 0.15);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  border-radius: 30px;
-  padding: 50px 60px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 25px;
+  padding: 60px 80px;
   text-align: center;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
-  position: relative;
-  max-width: 750px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  transition: all 0.4s ease-in-out;
   animation: floatCard 6s ease-in-out infinite;
-  transition: all 0.3s ease;
+  position: relative;
+  color: #222;
+}
+
+.home-content:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
 }
 
 .home-content::before {
@@ -47,28 +54,30 @@ body {
   background: linear-gradient(135deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
   z-index: -1;
   border-radius: 30px;
-  filter: blur(8px);
-  animation: borderPulse 8s infinite alternate;
+  filter: blur(12px);
+  opacity: 0.4;
+  animation: borderPulse 10s infinite alternate;
 }
 
 .home h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #2b2b2b;
   margin-bottom: 20px;
   animation: fadeInUp 1s ease-in-out;
-  letter-spacing: 2px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.8);
 }
 
 .home p {
-  font-size: 1.25rem;
-  color: #f8f8f8;
-  margin-bottom: 40px;
-  line-height: 1.8;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 50px;
+  line-height: 2;
   animation: fadeInUp 1.2s ease-in-out;
   opacity: 0.95;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .home-buttons {
@@ -80,44 +89,27 @@ body {
 }
 
 button {
-  background: transparent;
-  color: white;
-  padding: 14px 28px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  color: #fff;
+  padding: 14px 30px;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 30px;
-  border: 2px solid #fff;
+  border: none;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
   cursor: pointer;
-  z-index: 1;
-}
-
-button::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-  z-index: -1;
-  transition: all 0.5s ease;
-  opacity: 0;
-  transform: rotate(25deg);
-}
-
-button:hover::before {
-  opacity: 1;
-  transform: scale(1.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 18px rgba(255, 105, 180, 0.3);
+  background-size: 200% 200%;
+  background-position: left;
 }
 
 button:hover {
-  color: #fff;
-  border-color: transparent;
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 20px #ff9a9e;
+  background-position: right;
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 8px 30px rgba(255, 154, 158, 0.6);
 }
 
 /* Animations */
@@ -129,12 +121,12 @@ button:hover {
 
 @keyframes floatCard {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes fadeInUp {
   0% {
-    transform: translateY(30px);
+    transform: translateY(40px);
     opacity: 0;
   }
   100% {
@@ -145,8 +137,8 @@ button:hover {
 
 @keyframes borderPulse {
   0% {
-    opacity: 0.6;
-    filter: blur(8px);
+    opacity: 0.4;
+    filter: blur(6px);
   }
   100% {
     opacity: 1;
@@ -154,14 +146,14 @@ button:hover {
   }
 }
 
-/* Mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .home-content {
-    padding: 35px 25px;
+    padding: 40px 30px;
   }
 
   .home h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .home p {
@@ -176,11 +168,11 @@ button:hover {
 
 @media (max-width: 480px) {
   .home-content {
-    padding: 25px 15px;
+    padding: 30px 20px;
   }
 
   .home h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 
   .home p {

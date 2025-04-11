@@ -77,7 +77,7 @@ const RecipeGenerator = () => {
   return (
     <div className="recipe-container">
       <motion.h1 className="title" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        AI Recipe Generator
+        Recipe Generator
       </motion.h1>
 
       <div className="input-container">
