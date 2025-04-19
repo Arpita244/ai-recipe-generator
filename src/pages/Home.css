@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 40px;
 }
@@ -37,6 +38,9 @@ body {
   animation: floatCard 6s ease-in-out infinite;
   position: relative;
   color: #222;
+  display: flex; /* Flex layout for order control */
+  flex-direction: column; /* Ensures vertical order of elements */
+  align-items: center;
 }
 
 .home-content:hover {
